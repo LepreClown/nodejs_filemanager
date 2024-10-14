@@ -15,11 +15,18 @@ const rl = createInterface({
   output: process.stdout,
 });
 
+startApp(username);
 
 const main = () => {
-  startApp(username);
+  rl.on("line", (input) => {
+    const trimmedInput = input.toString().trim()
 
-  rl.on("line", (input) => readlineApp(input.toString().trim()))
+    if(trimmedInput === ".exit") {
+      rl.close();
+    } else {
+      readlineApp(trimmedInput)
+    }
+  })
   rl.on("close", () => exitApp(username));
 }
 

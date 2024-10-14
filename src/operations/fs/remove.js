@@ -1,10 +1,10 @@
 import fs from "node:fs";
 import {rm} from "node:fs/promises";
+
 import {validateCountArgs} from "../../helpers/validateCountArgs.js";
 import {ErrorsEnum} from "../../constants/errors.constant.js";
 
 const EXPECTED_ARGS_LENGTH = 1;
-
 
 export const remove = async ({args}) => {
   if (!validateCountArgs(args?.length, EXPECTED_ARGS_LENGTH)) return;

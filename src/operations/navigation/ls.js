@@ -1,7 +1,6 @@
-import fs from "fs";
+import fs from "node:fs";
+
 import {ErrorsEnum} from "../../constants/errors.constant.js";
-
-
 
 export const ls = async () => {
   const readAndWriteHandler = () => fs.promises.readdir( process.cwd(), {withFileTypes: true});

@@ -3,14 +3,12 @@ import {ErrorsEnum} from "../constants/errors.constant.js";
 import {up, cd, ls} from "../operations/navigation/index.js";
 import {cat, copy, create, remove, move, rename} from "../operations/fs/index.js";
 import {hash} from "../operations/hash/index.js";
-
+import {architecture, username, homeDir, cpus, EOL} from "../operations/os/index.js";
+import {compress, decompress} from "../operations/zip/index.js";
 
 export default async function readlineApp(input) {
   const data = input.split(" ")
   const [command, ...args] = data
-
-
-  printCurrentPath()
 
   const commands = {
     up: async () => {
@@ -43,20 +41,18 @@ export default async function readlineApp(input) {
     hash: async (args) => {
       await hash({args});
     },
-
-
-    // cd: async (args = []) => {
-    //   if (!validateArgs(args, 1)) return;
-    //   const [pathToDirectory] = args;
-    //   // await cd(pathToDirectory);
-    // },
-
-
-    '.exit': () => {
-      rl.close();
+    compress: async (args) => {
+      await compress({args});
     },
+    decompress: async (args) => {
+      await decompress({args});
+    },
+    'os --EOL': await EOL,
+    'os --cpus': await cpus,
+    'os --homedir': await homeDir,
+    'os --username': await username,
+    'os --architecture': await architecture,
   };
-
 
   try {
     if (commands[input]) {

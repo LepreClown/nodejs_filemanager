@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import {createHash} from "node:crypto";
+
 import {ErrorsEnum} from "../../constants/errors.constant.js";
 import {validateCountArgs} from "../../helpers/validateCountArgs.js";
-
 
 const EXPECTED_ARGS_LENGTH = 1;
 

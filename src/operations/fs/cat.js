@@ -3,8 +3,6 @@ import {join} from "node:path";
 
 import {validateCountArgs} from "../../helpers/validateCountArgs.js";
 import {ErrorsEnum} from "../../constants/errors.constant.js";
-import {printCurrentPath} from "../../helpers/printCurrentPath.js";
-
 
 const EXPECTED_ARGS_LENGTH = 1;
 

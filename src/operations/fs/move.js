@@ -5,7 +5,6 @@ import {rm} from "node:fs/promises";
 import {validateCountArgs} from "../../helpers/validateCountArgs.js";
 import {ErrorsEnum} from "../../constants/errors.constant.js";
 
-
 const EXPECTED_ARGS_LENGTH = 2;
 
 export const move = async ({args}) => {
